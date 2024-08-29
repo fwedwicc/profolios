@@ -4,19 +4,19 @@
 
 @layer base {
   body {
-    @apply text-neutral-300 bg-neutral-950;
+    @apply text-stone-300 bg-stone-950;
   }
   p {
-    @apply text-neutral-400 text-sm;
+    @apply text-stone-400 text-sm;
   }
   h1 {
-    @apply text-5xl text-neutral-200 font-bold;
+    @apply text-7xl text-stone-200 font-bold;
   }
   h2 {
-    @apply text-4xl text-neutral-200 font-bold;
+    @apply text-5xl text-stone-200 font-bold;
   }
   h3 {
-    @apply text-3xl text-neutral-200 font-bold;
+    @apply text-3xl text-stone-200 font-bold;
   }
 }
 
