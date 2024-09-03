@@ -6,7 +6,8 @@
   body {
     @apply text-stone-300 bg-stone-950;
   }
-  p {
+  p,
+  label {
     @apply text-stone-400 text-sm;
   }
   h1 {

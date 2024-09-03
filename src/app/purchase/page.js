@@ -76,66 +76,78 @@ export default function Purchase() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className='p-12 pt-36'
+      className='p-12 px-36 pt-44'
     >
-      <h1>Purchase</h1>
-      <p>This page contains purchase page contents.</p>
-      <div className="relative h-full">
-        {image && <img src={image} alt={title} className="absolute object-cover w-full h-full rounded-lg" />}
+      <div className='grid grid-cols-2 gap-12'>
+        {/* Left Content */}
+        <div className='space-y-4'>
+          <div className="relative h-[25rem]">
+            {image && <img src={image} alt={title} className="absolute object-cover w-full h-full rounded-lg" />}
+          </div>
+          <div className='space-y-5'>
+            <div className='flex justify-between items-center'>
+              <h2 className="leading-none text-2xl font-bold">{title}</h2>
+              <p>{price}</p>
+            </div>
+            <p>{description}</p>
+          </div>
+        </div>
+        {/* Right Content */}
+        <form onSubmit={handleSubmit} className="self-start space-y-6">
+          <div className='grid grid-cols-2 gap-4'>
+            <div className='col-span-2'>
+              <h3>Purchase Request</h3>
+              <p>Kindly fill out this form so we can handle your purchase request.</p>
+            </div>
+            <div className='col-span-1'>
+              <label className="block">
+                Complete Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="mt-1 block w-full p-2 bg-stone-900/50 border border-stone-800/50 rounded-md"
+              />
+              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+            </div>
+
+            <div className='col-span-1'>
+              <label className="block">
+                Email Address
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="mt-1 block w-full p-2 bg-stone-900/50 border border-stone-800/50 rounded-md"
+              />
+              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+            </div>
+
+            <div className='col-span-2'>
+              <label className="block">
+                Message for Customization (Optional)
+              </label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="mt-1 block w-full p-2 bg-stone-900/50 border border-stone-800/50 rounded-md"
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="bg-stone-200 text-stone-900 py-2 px-4 rounded-md text-sm"
+          >
+            Submit
+          </button>
+        </form>
       </div>
-      <div className=''>
-        <h2 className="leading-none text-2xl font-bold">{title}</h2>
-        <p className="">{description}</p>
-        <p className="">{price}</p>
-      </div>
-      <form onSubmit={handleSubmit} className="space-y-4 mt-8">
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Complete Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-          />
-          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Email Address
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-          />
-          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Message for Customization (Optional)
-          </label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="bg-blue-600 text-white py-2 px-4 rounded-md"
-        >
-          Submit
-        </button>
-      </form>
     </motion.section>
   );
 }
