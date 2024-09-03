@@ -75,9 +75,10 @@ export default function Collection() {
           <div className='relative'>
             <motion.div
               className="fixed inset-0 bg-stone-950/90 backdrop-blur-3xl top-[7.6rem] mx-8 rounded-t-3xl border border-stone-800/50 z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 100 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
             >
               {/* Close Button */}
               <button
