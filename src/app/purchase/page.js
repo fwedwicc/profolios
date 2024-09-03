@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import emailjs from 'emailjs-com';
+import useLenis from '../hooks/useLenis';
 
 export default function Purchase() {
+  useLenis()
   const searchParams = useSearchParams();
   const image = searchParams.get('image');
   const title = searchParams.get('title');

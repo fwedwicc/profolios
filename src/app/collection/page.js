@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link'
+import useLenis from '../hooks/useLenis';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Dummy data for the items
@@ -30,6 +31,7 @@ const items = [
 ];
 
 export default function Collection() {
+  useLenis()
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -78,7 +80,7 @@ export default function Collection() {
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 100 }}
-              transition={{ duration: 0.2, ease: 'easeInOut' }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
               {/* Close Button */}
               <button

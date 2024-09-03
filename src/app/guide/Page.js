@@ -1,7 +1,9 @@
 'use client'
 import { motion } from 'framer-motion';
+import useLenis from '../hooks/useLenis';
 
 export default function Guide() {
+  useLenis()
   return (
     <motion.section
       initial={{ opacity: 0 }}
