@@ -39,7 +39,13 @@ export default function Collection() {
   };
 
   return (
-    <div className='p-12 pt-36 space-y-12'>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className='p-12 pt-36 space-y-12'
+    >
       {/* Title and Description */}
       <div className="space-y-1">
         <h1>Collection</h1>
@@ -108,6 +114,6 @@ export default function Collection() {
           </div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.section>
   );
 }

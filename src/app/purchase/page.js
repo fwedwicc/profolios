@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import emailjs from 'emailjs-com';
 
@@ -40,11 +41,10 @@ export default function Purchase() {
       setErrors(formErrors);
     } else {
       setErrors({});
-      // Send email using EmailJS
       emailjs
         .send(
-          'service_e3j4b2l', // Replace with your EmailJS service ID
-          'template_csx77pr', // Replace with your EmailJS template ID
+          'service_e3j4b2l',
+          'template_csx77pr',
           {
             name: formData.name,
             email: formData.email,
@@ -53,7 +53,7 @@ export default function Purchase() {
             itemPrice: price,
             itemDescription: description,
           },
-          'U9j3EnuZPJPEjbg6d' // Replace with your EmailJS user ID
+          'U9j3EnuZPJPEjbg6d'
         )
         .then(
           (result) => {
@@ -69,7 +69,13 @@ export default function Purchase() {
   };
 
   return (
-    <div className='p-12'>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className='p-12 pt-36'
+    >
       <h1>Purchase</h1>
       <p>This page contains purchase page contents.</p>
       <div className="relative h-full">
@@ -80,7 +86,6 @@ export default function Purchase() {
         <p className="">{description}</p>
         <p className="">{price}</p>
       </div>
-
       <form onSubmit={handleSubmit} className="space-y-4 mt-8">
         <div>
           <label className="block text-sm font-medium text-gray-700">
@@ -129,6 +134,6 @@ export default function Purchase() {
           Submit
         </button>
       </form>
-    </div>
+    </motion.section>
   );
 }
