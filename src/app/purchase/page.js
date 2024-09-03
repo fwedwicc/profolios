@@ -17,12 +17,16 @@ export default function Purchase() {
     name: '',
     email: '',
     message: '',
+    agree: false,
   });
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
+    });
   };
 
   const validate = () => {
@@ -32,6 +36,9 @@ export default function Purchase() {
       formErrors.email = 'Email address is required.';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       formErrors.email = 'Email address is invalid.';
+    }
+    if (!formData.agree) {
+      formErrors.agree = 'You must agree to the terms & conditions and privacy policy.';
     }
     return formErrors;
   };
@@ -101,35 +108,37 @@ export default function Purchase() {
             </div>
             <div className='col-span-1'>
               <label className="block">
-                Complete Name
+                Complete Name <span className='text-red-500'>*</span>
               </label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 bg-stone-900/50 border border-stone-800/50 rounded-md"
+                className={`mt-1 block w-full p-2 bg-stone-900/50 border rounded-md ${errors.name ? 'border-red-500' : 'border-stone-800/50'
+                  }`}
               />
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
 
             <div className='col-span-1'>
               <label className="block">
-                Email Address
+                Email Address <span className='text-red-500'>*</span>
               </label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 bg-stone-900/50 border border-stone-800/50 rounded-md"
+                className={`mt-1 block w-full p-2 bg-stone-900/50 border rounded-md ${errors.email ? 'border-red-500' : 'border-stone-800/50'
+                  }`}
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
 
             <div className='col-span-2'>
               <label className="block">
-                Message for Customization (Optional)
+                Message for Customization <span className='text-stone-500 text-xs'>(Optional)</span>
               </label>
               <textarea
                 name="message"
@@ -138,6 +147,21 @@ export default function Purchase() {
                 className="mt-1 block w-full p-2 bg-stone-900/50 border border-stone-800/50 rounded-md"
               />
             </div>
+          </div>
+
+          <div className="col-span-2">
+            <label className="flex items-center">
+              <input
+                type="checkbox"
+                name="agree"
+                checked={formData.agree}
+                onChange={handleChange}
+                className={`mr-2 ${errors.agree ? 'border-red-500' : 'border-stone-800/50'
+                  }`}
+              />
+              Do you agree to the terms & conditions and privacy policy?
+            </label>
+            {errors.agree && <p className="text-red-500 text-sm mt-1">{errors.agree}</p>}
           </div>
 
           <button
