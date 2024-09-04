@@ -13,6 +13,7 @@ const items = [
     title: 'Item 1',
     price: '$10.00',
     description: 'Description for Item 1. This is a great product that you will love!',
+    features: ['Feature 1', 'Feature 2', 'Feature 3']
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const items = [
     title: 'Item 2',
     price: '$20.00',
     description: 'Description for Item 2. This is another great product that you should check out!',
+    features: ['Feature 1', 'Feature 2', 'Feature 3']
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ const items = [
     title: 'Item 3',
     price: '$30.00',
     description: 'Description for Item 3. This product is simply amazing!',
+    features: ['Feature 1', 'Feature 2', 'Feature 3']
   },
 ];
 
@@ -106,11 +109,11 @@ export default function Collection() {
                       title: selectedItem.title,
                       description: selectedItem.description,
                       price: selectedItem.price,
+                      features: JSON.stringify(selectedItem.features)
                     }
                   }}>
                     Get
                   </Link>
-
                 </div>
               </div>
             </motion.div>

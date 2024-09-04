@@ -12,6 +12,8 @@ export default function Purchase() {
   const title = searchParams.get('title');
   const description = searchParams.get('description');
   const price = searchParams.get('price');
+  const featuresString = searchParams.get('features'); // Get the features string
+  const features = featuresString ? JSON.parse(featuresString) : []; // Parse it into an array
 
   const [formData, setFormData] = useState({
     name: '',
@@ -68,6 +70,12 @@ export default function Purchase() {
           (result) => {
             console.log(result.text);
             alert('Your message has been sent successfully!');
+            setFormData({
+              name: '',
+              email: '',
+              message: '',
+              agree: false
+            });
           },
           (error) => {
             console.log(error.text);
@@ -97,6 +105,19 @@ export default function Purchase() {
               <p>{price}</p>
             </div>
             <p>{description}</p>
+            <div className='space-y-3'>
+              <p>Features:</p>
+              <ul className='space-y-2'>
+                {features.map((feature, index) => (
+                  <li key={index} className='text-sm text-stone-300 flex items-center gap-3'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                      <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
         {/* Right Content */}
@@ -104,7 +125,7 @@ export default function Purchase() {
           <div className='grid grid-cols-2 gap-4'>
             <div className='col-span-2 space-y-1 mb-4'>
               <h3>Purchase Request</h3>
-              <p>Kindly fill out this form so we can handle your purchase request.</p>
+              <p>Please complete this form to help us process your purchase request.</p>
             </div>
             {/* Complete Name */}
             <div className='col-span-1'>
@@ -172,8 +193,12 @@ export default function Purchase() {
             type="submit"
             className="bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md text-sm transition duration-300 ease-in-out active:scale-95"
           >
-            Submit
+            Submit request
           </button>
+          {/* Note */}
+          <div className='p-4 border border-stone-800/30 rounded-lg bg-stone-900/20'>
+            <p><span className='text-stone-300'>Note:</span> After submitting your purchase request, we'll email you to proceed with the transaction. You can also request a preview link of your selected live site to help you make an informed decision.</p>
+          </div>
         </form>
       </div>
     </motion.section>
