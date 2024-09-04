@@ -12,9 +12,8 @@ export default function Purchase() {
   const image = searchParams.get('image');
   const title = searchParams.get('title');
   const description = searchParams.get('description');
+  const techs = searchParams.get('techs');
   const price = searchParams.get('price');
-  const featuresString = searchParams.get('features'); // Get the features string
-  const features = featuresString ? JSON.parse(featuresString) : []; // Parse it into an array
 
   const [formData, setFormData] = useState({
     name: '',
@@ -101,23 +100,14 @@ export default function Purchase() {
             {image && <img src={image} alt={title} className="absolute object-cover w-full h-full rounded-lg" />}
           </div>
           <div className='space-y-5'>
-            <div className='flex justify-between items-center'>
-              <h2 className="leading-none text-2xl font-bold">{title}</h2>
-              <p>{price}</p>
+            <div className='flex justify-between items-start'>
+              <h4 className='md:text-xl text-base text-start'>{title}</h4>
+              <p className="text-stone-300 text-base">₱{price}.00</p>
             </div>
-            <p>{description}</p>
-            <div className='space-y-3'>
-              <p>Features:</p>
-              <ul className='space-y-2'>
-                {features.map((feature, index) => (
-                  <li key={index} className='text-sm text-stone-300 flex items-center gap-3'>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
-                      <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+            <div className='p-4 border border-stone-800/80 rounded-lg'>
+              <p className='mb-2.5'>Details:</p>
+              <p><span className='text-stone-300'>Description:</span> {description}</p>
+              <p><span className='text-stone-300'>Technologies:</span> {techs}</p>
             </div>
           </div>
         </div>
