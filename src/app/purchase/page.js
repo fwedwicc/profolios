@@ -91,12 +91,12 @@ export default function Purchase() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className='p-12 px-36 pt-44'
+      className='md:p-12 p-6 md:px-36 md:pt-44 pt-36'
     >
-      <div className='grid grid-cols-2 gap-12'>
+      <div className='grid lg:grid-cols-2 grid-cols-1 gap-12'>
         {/* Left Content */}
-        <div className='space-y-4'>
-          <div className="relative h-[25rem]">
+        <div className='lg:order-1 order-2 space-y-4'>
+          <div className="relative md:h-[25rem] h-[14rem]">
             {image && <img src={image} alt={title} className="absolute object-cover w-full h-full rounded-lg" />}
           </div>
           <div className='space-y-5'>
@@ -121,9 +121,9 @@ export default function Purchase() {
           </div>
         </div>
         {/* Right Content */}
-        <form onSubmit={handleSubmit} className="self-start space-y-6">
-          <div className='grid grid-cols-2 gap-4'>
-            <div className='col-span-2 space-y-1 mb-4'>
+        <form onSubmit={handleSubmit} className="lg:order-2 order-1 self-start space-y-6">
+          <div className='grid md:grid-cols-2 grid-cols-1 gap-4'>
+            <div className='md:col-span-2 col-span-1 space-y-1 mb-4'>
               <h3>Purchase Request</h3>
               <p>Please complete this form to help us process your purchase request.</p>
             </div>
@@ -138,10 +138,10 @@ export default function Purchase() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder={'Juan Dela Cruz'}
-                className={`mt-1.5 block w-full py-2 px-3.5 text-sm bg-stone-900/50 placeholder:text-stone-600 text-stone-200 transition duration-300 ease-in-out border rounded-md focus:ring-1 focus:ring-stone-300 focus:border-stone-300 ${errors.name ? 'border-red-500' : 'border-stone-800/50'
+                className={`mt-1.5 block w-full py-2 px-3.5 md:text-sm text-xs bg-stone-900/50 placeholder:text-stone-600 text-stone-200 transition duration-300 ease-in-out border rounded-md focus:ring-1 focus:ring-stone-300 focus:border-stone-300 ${errors.name ? 'border-red-500' : 'border-stone-800/50'
                   }`}
               />
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+              {errors.name && <p className="text-red-500 md:text-sm text-xs mt-1">{errors.name}</p>}
             </div>
             {/* Email Address */}
             <div className='col-span-1'>
@@ -154,13 +154,13 @@ export default function Purchase() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder={'juan.delacruz@gmail.com'}
-                className={`mt-1.5 block w-full py-2 px-3.5 text-sm bg-stone-900/50 placeholder:text-stone-600 text-stone-200 transition duration-300 ease-in-out border rounded-md focus:ring-1 focus:ring-stone-300 focus:border-stone-300 ${errors.email ? 'border-red-500' : 'border-stone-800/50'
+                className={`mt-1.5 block w-full py-2 px-3.5 md:text-sm text-xs bg-stone-900/50 placeholder:text-stone-600 text-stone-200 transition duration-300 ease-in-out border rounded-md focus:ring-1 focus:ring-stone-300 focus:border-stone-300 ${errors.email ? 'border-red-500' : 'border-stone-800/50'
                   }`}
               />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 md:text-sm text-xs mt-1">{errors.email}</p>}
             </div>
             {/* Message for Customization */}
-            <div className='col-span-2'>
+            <div className='md:col-span-2 col-span-1'>
               <label className="block">
                 Message for Customization <span className='text-stone-500 text-xs'>(Optional)</span>
               </label>
@@ -169,12 +169,12 @@ export default function Purchase() {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder={"(I'd like to update the color palette.)"}
-                className="mt-1.5 block w-full py-2 px-3.5 text-sm bg-stone-900/50 placeholder:text-stone-600 text-stone-200 transition duration-300 ease-in-out border border-stone-800/50 rounded-md focus:ring-1 focus:ring-stone-300 focus:border-stone-300"
+                className="mt-1.5 block w-full py-2 px-3.5 md:text-sm text-xs bg-stone-900/50 placeholder:text-stone-600 text-stone-200 transition duration-300 ease-in-out border border-stone-800/50 rounded-md focus:ring-1 focus:ring-stone-300 focus:border-stone-300"
               />
             </div>
             {/* Checkbox for agreement */}
-            <div className="col-span-2">
-              <label className="flex items-center cursor-pointer">
+            <div className="md:col-span-2 col-span-1">
+              <label className="flex items-start cursor-pointer md:leading-none leading-snug">
                 <input
                   type="checkbox"
                   name="agree"
@@ -185,7 +185,7 @@ export default function Purchase() {
                 />
                 Do you agree to the terms & conditions and privacy policy?
               </label>
-              {errors.agree && <p className="text-red-500 text-sm mt-1">{errors.agree}</p>}
+              {errors.agree && <p className="text-red-500 md:text-sm text-xs mt-1">{errors.agree}</p>}
             </div>
           </div>
           {/* Submit Button */}

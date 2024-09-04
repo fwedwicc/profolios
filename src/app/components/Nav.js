@@ -6,7 +6,7 @@ export function Nav() {
   const pathname = usePathname()
 
   return (
-    <nav className='bg-stone-900/90 z-50 border backdrop-blur-md border-stone-800/30 text-sm rounded-full py-2 px-5 fixed top-10 w-auto flex left-1/2 -translate-x-1/2'>
+    <nav className='bg-stone-900/90 z-40 border backdrop-blur-md border-stone-800/30 text-sm rounded-full py-2 px-5 fixed top-10 w-auto flex left-1/2 -translate-x-1/2'>
       <Link href='/' className={`${pathname === '/' ? 'text-white' : 'text-stone-400'} rounded-full py-3 px-5 transition duration-300 ease-in-out`} >
         Home
       </Link>

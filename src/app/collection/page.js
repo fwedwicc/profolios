@@ -49,26 +49,26 @@ export default function Collection() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className='p-12 pt-36 space-y-12'
+      className='md:p-12 p-6 md:px-36 md:pt-44 pt-36'
     >
       {/* Title and Description */}
-      <div className="space-y-1">
+      <div className="space-y-1 mb-12">
         <h1>Collection</h1>
         <p>This page contains collection page contents.</p>
       </div>
       {/* All items */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
         {items.map((item) => (
           <button
             key={item.id}
-            className="hover:bg-stone-900/30 border border-transparent hover:border hover:border-stone-800/50 p-6 rounded-2xl space-y-3 transition duration-300 ease-in-out"
+            className="hover:bg-stone-900/30 border border-transparent hover:border hover:border-stone-800/50 md:p-6 p-3 rounded-2xl space-y-3 transition duration-300 ease-in-out"
             onClick={() => toggleModal(item)}
           >
-            <div className="relative h-[25rem]">
+            <div className="relative md:h-[25rem] h-[13rem]">
               <img src={item.image} alt={item.title} className="absolute object-cover w-full h-full rounded-lg" />
             </div>
             <div className="flex justify-between items-center">
-              <h3>{item.title}</h3>
+              <h3 className='md:text-3xl text-xl'>{item.title}</h3>
               <p>{item.price}</p>
             </div>
           </button>
@@ -79,7 +79,7 @@ export default function Collection() {
         {isOpen && selectedItem && (
           <div className='relative'>
             <motion.div
-              className="fixed inset-0 bg-stone-950/90 backdrop-blur-3xl top-[7.6rem] mx-8 rounded-t-3xl border border-stone-800/50 z-40"
+              className="fixed inset-0 bg-stone-950/90 backdrop-blur-3xl md:top-[7.6rem] top-[10rem] md:mx-8 mx-4 rounded-t-3xl border border-stone-800/50 z-40"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 100 }}
@@ -87,15 +87,15 @@ export default function Collection() {
             >
               {/* Close Button */}
               <button
-                className="absolute -top-12 right-0 size-9 flex justify-center items-center hover:bg-stone-800/70 hover:text-stone-100 text-stone-300 rounded-full transition duration-300 ease-in-out"
+                className="absolute -top-12 right-0 size-9 z-50 flex justify-center items-center hover:bg-stone-800/70 hover:text-stone-100 text-stone-300 rounded-full transition duration-300 ease-in-out"
                 onClick={toggleModal}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="md:size-5 size-4">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
               </button>
               {/* Content */}
-              <div className='grid grid-cols-2 gap-12 w-full h-full p-8'>
+              <div className='grid lg:grid-cols-2 grid-cols-1 md:gap-12 gap-4 w-full h-full md:p-8 p-5'>
                 <div className="relative h-full">
                   <img src={selectedItem.image} alt={selectedItem.title} className="absolute object-cover w-full h-full rounded-lg" />
                 </div>

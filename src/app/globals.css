@@ -8,16 +8,16 @@
   }
   p,
   label {
-    @apply text-stone-400 text-sm;
+    @apply text-stone-400 md:text-sm text-xs;
   }
   h1 {
-    @apply text-7xl text-stone-200 font-bold;
+    @apply md:text-7xl text-5xl text-stone-200 font-bold;
   }
   h2 {
     @apply text-5xl text-stone-200 font-bold;
   }
   h3 {
-    @apply text-3xl text-stone-200 font-bold;
+    @apply md:text-3xl text-2xl text-stone-200 font-bold;
   }
 }
 
