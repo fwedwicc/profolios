@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link'
 import emailjs from 'emailjs-com';
 import useLenis from '../hooks/useLenis';
 
@@ -174,7 +175,7 @@ export default function Purchase() {
             </div>
             {/* Checkbox for agreement */}
             <div className="md:col-span-2 col-span-1">
-              <label className="flex items-start cursor-pointer md:leading-none leading-snug">
+              <label className="flex items-start cursor-pointer">
                 <input
                   type="checkbox"
                   name="agree"
@@ -183,7 +184,7 @@ export default function Purchase() {
                   className={`mr-3.5 rounded-[4px] focus:ring-stone-800 focus:ring-2 text-stone-800 bg-stone-900/50 border border-stone-800/50 transition duration-300 ease-in-out ${errors.agree ? 'border-red-500' : 'border-stone-800/50'
                     }`}
                 />
-                Do you agree to the terms & conditions and privacy policy?
+                <p className='md:leading-none leading-snug'>Do you agree to the <Link href='/' className='underline text-stone-300'>terms & conditions</Link> and <Link href='/' className='underline text-stone-300'>privacy policy</Link>?</p>
               </label>
               {errors.agree && <p className="text-red-500 md:text-sm text-xs mt-1">{errors.agree}</p>}
             </div>
