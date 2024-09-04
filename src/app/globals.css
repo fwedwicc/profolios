@@ -19,6 +19,9 @@
   h3 {
     @apply md:text-3xl text-2xl text-stone-200 font-bold;
   }
+  h4 {
+    @apply md:text-xl text-lg text-stone-200 font-bold;
+  }
 }
 
 @layer utilities {

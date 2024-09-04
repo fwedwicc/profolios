@@ -192,7 +192,7 @@ export default function Purchase() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md text-sm transition duration-300 ease-in-out active:scale-95"
+            className="bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md md:text-sm text-xs transition duration-300 ease-in-out active:scale-95 md:w-auto w-full"
           >
             Submit request
           </button>
