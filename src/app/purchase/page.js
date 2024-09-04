@@ -102,10 +102,11 @@ export default function Purchase() {
         {/* Right Content */}
         <form onSubmit={handleSubmit} className="self-start space-y-6">
           <div className='grid grid-cols-2 gap-4'>
-            <div className='col-span-2'>
+            <div className='col-span-2 space-y-1 mb-4'>
               <h3>Purchase Request</h3>
               <p>Kindly fill out this form so we can handle your purchase request.</p>
             </div>
+            {/* Complete Name */}
             <div className='col-span-1'>
               <label className="block">
                 Complete Name <span className='text-red-500'>*</span>
@@ -115,12 +116,13 @@ export default function Purchase() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`mt-1 block w-full p-2 bg-stone-900/50 border rounded-md ${errors.name ? 'border-red-500' : 'border-stone-800/50'
+                placeholder={'Juan Dela Cruz'}
+                className={`mt-1.5 block w-full py-2 px-3.5 text-sm bg-stone-900/50 placeholder:text-stone-600 text-stone-200 transition duration-300 ease-in-out border rounded-md focus:ring-1 focus:ring-stone-300 focus:border-stone-300 ${errors.name ? 'border-red-500' : 'border-stone-800/50'
                   }`}
               />
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
-
+            {/* Email Address */}
             <div className='col-span-1'>
               <label className="block">
                 Email Address <span className='text-red-500'>*</span>
@@ -130,12 +132,13 @@ export default function Purchase() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`mt-1 block w-full p-2 bg-stone-900/50 border rounded-md ${errors.email ? 'border-red-500' : 'border-stone-800/50'
+                placeholder={'juan.delacruz@gmail.com'}
+                className={`mt-1.5 block w-full py-2 px-3.5 text-sm bg-stone-900/50 placeholder:text-stone-600 text-stone-200 transition duration-300 ease-in-out border rounded-md focus:ring-1 focus:ring-stone-300 focus:border-stone-300 ${errors.email ? 'border-red-500' : 'border-stone-800/50'
                   }`}
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
-
+            {/* Message for Customization */}
             <div className='col-span-2'>
               <label className="block">
                 Message for Customization <span className='text-stone-500 text-xs'>(Optional)</span>
@@ -144,29 +147,30 @@ export default function Purchase() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 bg-stone-900/50 border border-stone-800/50 rounded-md"
+                placeholder={"(I'd like to update the color palette.)"}
+                className="mt-1.5 block w-full py-2 px-3.5 text-sm bg-stone-900/50 placeholder:text-stone-600 text-stone-200 transition duration-300 ease-in-out border border-stone-800/50 rounded-md focus:ring-1 focus:ring-stone-300 focus:border-stone-300"
               />
             </div>
+            {/* Checkbox for agreement */}
+            <div className="col-span-2">
+              <label className="flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="agree"
+                  checked={formData.agree}
+                  onChange={handleChange}
+                  className={`mr-3.5 rounded-[4px] focus:ring-stone-800 focus:ring-2 text-stone-800 bg-stone-900/50 border border-stone-800/50 transition duration-300 ease-in-out ${errors.agree ? 'border-red-500' : 'border-stone-800/50'
+                    }`}
+                />
+                Do you agree to the terms & conditions and privacy policy?
+              </label>
+              {errors.agree && <p className="text-red-500 text-sm mt-1">{errors.agree}</p>}
+            </div>
           </div>
-
-          <div className="col-span-2">
-            <label className="flex items-center">
-              <input
-                type="checkbox"
-                name="agree"
-                checked={formData.agree}
-                onChange={handleChange}
-                className={`mr-2 ${errors.agree ? 'border-red-500' : 'border-stone-800/50'
-                  }`}
-              />
-              Do you agree to the terms & conditions and privacy policy?
-            </label>
-            {errors.agree && <p className="text-red-500 text-sm mt-1">{errors.agree}</p>}
-          </div>
-
+          {/* Submit Button */}
           <button
             type="submit"
-            className="bg-stone-200 text-stone-900 py-2 px-4 rounded-md text-sm"
+            className="bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md text-sm transition duration-300 ease-in-out active:scale-95"
           >
             Submit
           </button>
