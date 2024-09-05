@@ -1,8 +1,8 @@
 'use client'
 import { motion } from 'framer-motion';
 import useLenis from '../hooks/useLenis';
-import emailjs from 'emailjs-com';
 import { professionLinks, socialLinks } from '../constants/data';
+import ContactForm from '../components/ContactForm';
 
 export default function Contact() {
   useLenis()
@@ -16,11 +16,11 @@ export default function Contact() {
     >
       <div className='grid md:grid-cols-2 grid-cols-1 gap-12'>
         {/* Form */}
-        <div className='border'>
-
+        <div className='order-2 md:order-1'>
+          <ContactForm />
         </div>
         {/* Social, contacts and other description */}
-        <div className='space-y-4'>
+        <div className='order-1 md:order-2 space-y-4'>
           {/* Badge */}
           <span className='inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 md:text-xs text-[10px] border text-stone-300 border-stone-500/50 bg-stone-700/10'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-3">
