@@ -33,6 +33,19 @@ const professionLinks = [
   },
 ]
 
+const socialLinks = [
+  {
+    link: 'https://web.facebook.com/fwedwic',
+    svg: 'M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z',
+    accent: 'group-hover:text-blue-500'
+  },
+  {
+    link: 'https://www.instagram.com/freefinnn/',
+    svg: 'M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z',
+    accent: 'group-hover:text-rose-500'
+  }
+]
+
 export default function Contact() {
   useLenis()
   return (
@@ -49,16 +62,18 @@ export default function Contact() {
 
         </div>
         {/* Social, contacts and other description */}
-        <div className='border space-y-4'>
+        <div className='space-y-4'>
           {/* Badge */}
           <span className='inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 md:text-xs text-[10px] border text-stone-300 border-stone-500/50 bg-stone-700/10'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-3">
               <path fillRule="evenodd" d="M4.804 21.644A6.707 6.707 0 0 0 6 21.75a6.721 6.721 0 0 0 3.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 0 1-.814 1.686.75.75 0 0 0 .44 1.223ZM8.25 10.875a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25ZM10.875 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z" clipRule="evenodd" />
             </svg>
-            Reach out to us
+            Reach out to me
           </span>
-          <h1>We'd love to <br /> hear from you!</h1>
-          <p className='w-full '>Ullamco pariatur culpa adipisicing commodo minim velit deserunt in elit pariatur veniam elit fugiat incididunt.asdf asdf: <a href='mailto:moreno.frederick.capiral@gmail.com' className='text-stone-300 underline'>moreno.frederick.capiral@gmail.com</a></p>
+          <h1>Love to hear <br /> from you!</h1>
+          <p className='w-full max-w-lg'>
+            Whether you have questions or are ready to get started on your custom portfolio website, I'm here to assist! Share your ideas, and I'll personally get back to you. Feel free to reach out at: <a href='mailto:moreno.frederick.capiral@gmail.com' className='text-stone-300 underline'>moreno.frederick.capiral@gmail.com</a>
+          </p>
           {/* Profession Links */}
           <div className='space-y-3'>
             <p>Professions:</p>
@@ -82,8 +97,16 @@ export default function Contact() {
           {/* Social Links */}
           <div className='space-y-3'>
             <p>Socials:</p>
-            <ul>
-              <li><a href='#'>Facebook</a></li>
+            <ul className='flex flex-wrap gap-2.5'>
+              {socialLinks.map((item, index) => (
+                <li className='inline-flex' key={index}>
+                  <a href={item.link} target='_blank' rel='noopener noreferrer' className='rounded-full hover:bg-stone-800/50 p-2 transition duration-300 ease-in-out group'>
+                    <svg className={`shrink-0 md:size-5 size-4 transition duration-300 ease-in-out ${item.accent}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path fill="currentColor" fill-rule="evenodd" d={item.svg} clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
