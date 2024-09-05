@@ -68,9 +68,9 @@ export default function Collection() {
                 </svg>
               </button>
               {/* Content */}
-              <div className='grid md:grid-cols-2 grid-cols-1 md:gap-12 gap-4 w-full h-full md:p-8 p-5 overflow-auto'>
+              <div className='grid md:grid-cols-2 grid-cols-1 md:gap-12 gap-4 w-full h-full md:p-8 p-5 overflow-y-auto md:custom-scrollbar invisible-scrollbar'>
                 {/* Image */}
-                <div className="relative md:h-full h-[15rem]">
+                <div className="relative md:h-full h-[13rem]">
                   <img src={selectedItem.image} alt={selectedItem.title} className="absolute object-cover w-full h-full rounded-lg" />
                 </div>
                 <div className='space-y-4'>
