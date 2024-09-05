@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import PurchaseForm from '../components/PurchaseForm';
+import { GetInTouch } from '../components/GetInTouch';
 
 import useLenis from '../hooks/useLenis';
 
@@ -20,31 +21,34 @@ export default function Purchase() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className='md:p-12 p-6 md:px-36 md:pt-44 pt-36'
+      className='md:p-12 p-6 space-y-24'
     >
-      <div className='grid lg:grid-cols-2 grid-cols-1 gap-12'>
-        {/* Left Content */}
-        <div className='lg:order-1 order-2 space-y-4'>
-          <div className="relative md:h-[25rem] h-[14rem]">
-            {image && <img src={image} alt={title} className="absolute object-cover w-full h-full rounded-lg" />}
-          </div>
-          <div className='space-y-5'>
-            <div className='flex justify-between items-start'>
-              <h4 className='md:text-xl text-base text-start'>{title}</h4>
-              <p className="text-stone-300 text-base">₱{price}.00</p>
+      <div className='md:px-36 pt-36'>
+        <div className='grid lg:grid-cols-2 grid-cols-1 gap-12'>
+          {/* Left Content */}
+          <div className='lg:order-1 order-2 space-y-4'>
+            <div className="relative md:h-[25rem] h-[14rem]">
+              {image && <img src={image} alt={title} className="absolute object-cover w-full h-full rounded-lg" />}
             </div>
-            <div className='p-4 border border-stone-800/80 rounded-lg'>
-              <p className='mb-2.5'>Details:</p>
-              <p><span className='text-stone-300'>Description:</span> {description}</p>
-              <p><span className='text-stone-300'>Technologies:</span> {techs}</p>
+            <div className='space-y-5'>
+              <div className='flex justify-between items-start'>
+                <h4 className='md:text-xl text-base text-start'>{title}</h4>
+                <p className="text-stone-300 text-base">₱{price}.00</p>
+              </div>
+              <div className='p-4 border border-stone-800/80 rounded-lg'>
+                <p className='mb-2.5'>Details:</p>
+                <p><span className='text-stone-300'>Description:</span> {description}</p>
+                <p><span className='text-stone-300'>Technologies:</span> {techs}</p>
+              </div>
             </div>
           </div>
-        </div>
-        {/* Right Content */}
-        <div className='lg:order-2 order-1 self-start'>
-          <PurchaseForm />
+          {/* Right Content */}
+          <div className='lg:order-2 order-1 self-start'>
+            <PurchaseForm />
+          </div>
         </div>
       </div>
+      <GetInTouch />
     </motion.section>
   );
 }

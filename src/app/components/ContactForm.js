@@ -148,7 +148,7 @@ export default function ContactForm() {
         type="submit"
         className="bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md md:text-sm text-xs transition duration-300 ease-in-out active:scale-95 md:w-auto w-full"
       >
-        Submit request
+        Submit inquiry
       </button>
       {/* Note */}
       <div className='p-4 border border-stone-800/30 rounded-lg bg-stone-900/20'>

@@ -3,7 +3,7 @@ import Link from 'next/link'
 export function Footer() {
 
   return (
-    <footer className='mt-12 md:p-12 p-6 md:px-36 space-y-12'>
+    <footer className='md:p-12 p-6 md:px-36 space-y-12'>
       <div className='flex lg:flex-row flex-col lg:justify-between justify-center lg:items-start items-center gap-8'>
         {/* Brand Logo, Title and Description */}
         <div className='flex items-start gap-5'>
