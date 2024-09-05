@@ -14,13 +14,13 @@ export default function Contact() {
       transition={{ duration: 0.5 }}
       className='md:p-12 p-6 md:px-36 md:pt-44 pt-36'
     >
-      <div className='grid md:grid-cols-2 grid-cols-1 gap-12'>
+      <div className='grid lg:grid-cols-2 grid-cols-1 gap-12'>
         {/* Form */}
-        <div className='order-2 md:order-1'>
+        <div className='order-2 lg:order-1'>
           <ContactForm />
         </div>
         {/* Social, contacts and other description */}
-        <div className='order-1 md:order-2 space-y-4'>
+        <div className='order-1 lg:order-2 space-y-4'>
           {/* Badge */}
           <span className='inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 md:text-xs text-[10px] border text-stone-300 border-stone-500/50 bg-stone-700/10'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-3">

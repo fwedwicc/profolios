@@ -1,5 +1,6 @@
 import { Banner } from './components/Banner'
 import { Nav } from './components/Nav'
+import { Footer } from './components/Footer'
 import { Inter } from "next/font/google"
 import "./globals.css"
 
@@ -18,7 +19,7 @@ export default function RootLayout({ children }) {
         <Banner />
         <Nav />
         <main>{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
