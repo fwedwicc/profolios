@@ -12,7 +12,7 @@ export default function Contact() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className='md:p-12 p-6 md:px-36 md:pt-44 pt-36'
+      className='md:p-12 p-6 lg:px-36 md:px-24 md:pt-44 pt-36'
     >
       <div className='grid lg:grid-cols-2 grid-cols-1 gap-12'>
         {/* Form */}

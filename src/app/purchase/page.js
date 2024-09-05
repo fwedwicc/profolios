@@ -23,7 +23,7 @@ export default function Purchase() {
       transition={{ duration: 0.5 }}
       className='md:p-12 p-6 space-y-24'
     >
-      <div className='md:px-36 pt-36'>
+      <div className='lg:px-36 md:px-24 pt-36'>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-12'>
           {/* Left Content */}
           <div className='lg:order-1 order-2 space-y-4'>

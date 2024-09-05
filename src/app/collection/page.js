@@ -25,7 +25,7 @@ export default function Collection() {
       transition={{ duration: 0.5 }}
       className='md:p-12 p-6 space-y-24'
     >
-      <div className='md:px-36 pt-36'>
+      <div className='lg:px-36 md:px-24 pt-36'>
         {/* Title and Description */}
         <div className="space-y-1 mb-12">
           <h1>Collection</h1>
@@ -39,7 +39,7 @@ export default function Collection() {
               className="self-start hover:bg-stone-900/30 border border-transparent hover:border hover:border-stone-800/50 md:p-6 p-3 rounded-2xl space-y-3 transition duration-300 ease-in-out"
               onClick={() => toggleModal(item)}
             >
-              <div className="relative md:h-[25rem] h-[13rem]">
+              <div className="relative lg:h-[25rem] md:h-[20rem] h-[13rem]">
                 <img src={item.image} alt={item.title} className="absolute object-cover w-full h-full rounded-lg" />
               </div>
               <div className="flex justify-between items-start">

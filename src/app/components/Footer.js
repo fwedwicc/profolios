@@ -5,7 +5,7 @@ import profoliosLogo from '../../../public/profolios-logo.png'
 export function Footer() {
 
   return (
-    <footer className='md:p-12 p-6 md:px-36 space-y-12'>
+    <footer className='md:p-12 p-6 lg:px-36 md:px-24 space-y-12'>
       <div className='flex lg:flex-row flex-col lg:justify-between justify-center lg:items-start items-center gap-8'>
         {/* Brand Logo, Title and Description */}
         <div className='flex items-start gap-5'>
@@ -18,7 +18,7 @@ export function Footer() {
           </div>
         </div>
         {/* Links */}
-        <div className='flex gap-12'>
+        <div className='flex gap-14'>
           {/* Site Links */}
           <ul>
             <li className='md:text-sm text-xs text-stone-400 mb-2'>Links</li>
