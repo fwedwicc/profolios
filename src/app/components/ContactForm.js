@@ -5,6 +5,10 @@ import emailjs from 'emailjs-com';
 
 export default function ContactForm() {
 
+  const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
+  const templateId = process.env.NEXT_PUBLIC_CONTACT_TEMPLATE_ID;
+  const publicUser = process.env.NEXT_PUBLIC_PUBLIC_USER;
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,14 +49,14 @@ export default function ContactForm() {
       setErrors({});
       emailjs
         .send(
-          'service_e3j4b2l',
-          'template_qzpbhca',
+          serviceId,
+          templateId,
           {
             name: formData.name,
             email: formData.email,
             message: formData.message,
           },
-          'U9j3EnuZPJPEjbg6d'
+          publicUser
         )
         .then(
           (result) => {

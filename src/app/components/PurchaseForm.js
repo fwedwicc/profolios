@@ -6,6 +6,10 @@ import emailjs from 'emailjs-com';
 
 export default function PurchaseForm() {
 
+  const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
+  const templateId = process.env.NEXT_PUBLIC_PURCHASE_TEMPLATE_ID;
+  const publicUser = process.env.NEXT_PUBLIC_PUBLIC_USER;
+
   const searchParams = useSearchParams();
   // const image = searchParams.get('image');
   const title = searchParams.get('title');
@@ -52,8 +56,8 @@ export default function PurchaseForm() {
       setErrors({});
       emailjs
         .send(
-          'service_e3j4b2l',
-          'template_csx77pr',
+          serviceId,
+          templateId,
           {
             name: formData.name,
             email: formData.email,
@@ -62,7 +66,7 @@ export default function PurchaseForm() {
             itemPrice: price,
             itemDescription: description,
           },
-          'U9j3EnuZPJPEjbg6d'
+          publicUser
         )
         .then(
           (result) => {
