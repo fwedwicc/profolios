@@ -14,7 +14,7 @@
     @apply md:text-7xl text-5xl text-stone-200 font-bold;
   }
   h2 {
-    @apply text-5xl text-stone-200 font-bold;
+    @apply md:text-5xl text-3xl text-stone-200 font-bold;
   }
   h3 {
     @apply md:text-3xl text-2xl text-stone-200 font-bold;
