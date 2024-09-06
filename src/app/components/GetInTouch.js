@@ -11,7 +11,7 @@ export function GetInTouch() {
         <p className="w-full max-w-xl mb-6">Whether you’re looking to purchase a ready-made portfolio or want a custom-built website tailored to your needs, I’ve got you covered. Fill out the form, and I’ll get in touch to discuss your project and help you take the next step.</p>
         <Link href='/contact'>
           <button
-            className="flex items-center gap-2 bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md md:text-sm text-xs transition duration-300 ease-in-out active:scale-95"
+            className="inline-flex items-center gap-2 bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md md:text-sm text-xs transition duration-300 ease-in-out active:scale-95"
           >
             Get in touch
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 md:size-5 size-4">

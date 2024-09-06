@@ -17,6 +17,8 @@ export default function Collection() {
     setIsOpen(!isOpen);
   };
 
+  const [activeTab, setActiveTab] = useState('allItems');
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -31,24 +33,82 @@ export default function Collection() {
           <h1>Collection</h1>
           <p>This page contains collection page contents.</p>
         </div>
-        {/* All items */}
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
-          {itemsData.map((item) => (
-            <button
-              key={item.id}
-              className="self-start hover:bg-stone-900/30 border border-transparent hover:border hover:border-stone-800/50 md:p-6 p-3 rounded-2xl space-y-3 transition duration-300 ease-in-out"
-              onClick={() => toggleModal(item)}
+        {/* Tab Button */}
+        <div className='space-x-2 flex'>
+          <div className='inline-flex p-1.5 border border-neutral-700/80 gap-2 rounded-[0.4rem]'>
+            <motion.button
+              className={`inline-flex justify-center items-center gap-2.5 px-4 py-2 rounded-md ${activeTab === 'allItems' ? 'text-neutral-800 bg-neutral-200 font-semibold' : 'text-neutral-300 bg-transparent hover:bg-neutral-700/40 transition duration-300 ease-in-out'
+                }`}
+              onClick={() => setActiveTab('allItems')}
+              whileTap={{ scale: 0.95 }}
             >
-              <div className="relative lg:h-[25rem] md:h-[20rem] h-[13rem]">
-                <img src={item.image} alt={item.title} className="absolute object-cover w-full h-full rounded-lg" />
-              </div>
-              <div className="flex justify-between items-start">
-                <h4 className='md:text-xl text-base text-start'>{item.title}</h4>
-                <p className="text-stone-300 text-base">₱{item.price}.00</p>
-              </div>
-            </button>
-          ))}
+              All items
+            </motion.button>
+            <motion.button
+              className={`inline-flex justify-center items-center gap-2.5 px-4 py-2 rounded-md ${activeTab === 'premiumItems' ? 'text-neutral-800 bg-neutral-200 font-semibold' : 'text-neutral-300 bg-transparent hover:bg-neutral-700/40 transition duration-300 ease-in-out'
+                }`}
+              onClick={() => setActiveTab('premiumItems')}
+              whileTap={{ scale: 0.95 }}
+            >
+              Premium site
+            </motion.button>
+            <motion.button
+              className={`inline-flex justify-center items-center gap-2.5 px-4 py-2 rounded-md ${activeTab === 'standardItems' ? 'text-neutral-800 bg-neutral-200 font-semibold' : 'text-neutral-300 bg-transparent hover:bg-neutral-700/40 transition duration-300 ease-in-out'
+                }`}
+              onClick={() => setActiveTab('standardItems')}
+              whileTap={{ scale: 0.95 }}
+            >
+              Standard site
+            </motion.button>
+            <motion.button
+              className={`inline-flex justify-center items-center gap-2.5 px-4 py-2 rounded-md ${activeTab === 'basicItems' ? 'text-neutral-800 bg-neutral-200 font-semibold' : 'text-neutral-300 bg-transparent hover:bg-neutral-700/40 transition duration-300 ease-in-out'
+                }`}
+              onClick={() => setActiveTab('basicItems')}
+              whileTap={{ scale: 0.95 }}
+            >
+              Basic site
+            </motion.button>
+          </div>
         </div>
+        {/* Tab Content */}
+        <div className="mt-3">
+          <AnimatePresence mode="wait">
+            {['premiumItems', 'standardItems', 'basicItems', 'allItems'].includes(activeTab) && (
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className='grid lg:grid-cols-2 grid-cols-1 gap-4'
+              >
+                {itemsData
+                  .find((category) => category[activeTab])
+                [activeTab].map((item) => (
+                  <button
+                    key={item.id}
+                    className="self-start hover:bg-stone-900/30 border border-transparent hover:border hover:border-stone-800/50 md:p-6 p-3 rounded-2xl space-y-3 transition duration-300 ease-in-out"
+                    onClick={() => toggleModal(item)}
+                  >
+                    <div className="relative lg:h-[25rem] md:h-[20rem] h-[13rem]">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="absolute object-cover w-full h-full rounded-lg"
+                      />
+                    </div>
+                    <div className="flex justify-between items-start">
+                      <h4 className="md:text-xl text-base text-start">{item.title}</h4>
+                      <p className="text-stone-300 text-base">₱{item.price}.00</p>
+                    </div>
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+
         {/* Drawer Modal */}
         <AnimatePresence>
           {isOpen && selectedItem && (
