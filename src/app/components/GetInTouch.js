@@ -4,7 +4,7 @@ import meshGradient from '../../../public/mesh-gradient-01.png'
 
 export function GetInTouch() {
   return (
-    <section className='relative md:p-12 p-6 border border-stone-800 rounded-2xl  md:rounded-3xl md:space-y-6 space-y-5'>
+    <section className='relative md:px-12 md:pb-12 md:pt-5 px-6 pb-6 pt-1 border border-stone-800 rounded-2xl  md:rounded-3xl md:space-y-6 space-y-5'>
       <Image src={meshGradient} alt='profolios Logo' className='absolute object-cover w-full h-full -z-10 top-0 left-0 rounded-2xl  md:rounded-3xl' />
       <h2>Find Your Perfect Website <br className="md:block hidden" /> or Let’s Build It Together!</h2>
       <div className="space-y-4">

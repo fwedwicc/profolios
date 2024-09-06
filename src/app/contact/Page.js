@@ -12,9 +12,9 @@ export default function Contact() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className='md:p-12 p-6 lg:px-36 md:px-24 md:pt-44 pt-36'
+      className='md:p-12 p-6'
     >
-      <div className='grid lg:grid-cols-2 grid-cols-1 gap-12'>
+      <div className='grid lg:grid-cols-2 grid-cols-1 gap-12 lg:px-24 md:px-16 pt-36'>
         {/* Form */}
         <div className='order-2 lg:order-1'>
           <ContactForm />

@@ -25,7 +25,7 @@ export default function Collection() {
       transition={{ duration: 0.5 }}
       className='md:p-12 p-6 space-y-24'
     >
-      <div className='lg:px-36 md:px-24 pt-36'>
+      <div className='lg:px-24 md:px-16 pt-36'>
         {/* Title and Description */}
         <div className="space-y-1 mb-12">
           <h1>Collection</h1>
