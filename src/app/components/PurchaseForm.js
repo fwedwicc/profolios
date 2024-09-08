@@ -24,6 +24,7 @@ export default function PurchaseForm() {
     agree: false,
   });
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -54,6 +55,7 @@ export default function PurchaseForm() {
       setErrors(formErrors);
     } else {
       setErrors({});
+      setLoading(true); // Set loading to true when form submission starts
       emailjs
         .send(
           serviceId,
@@ -71,17 +73,19 @@ export default function PurchaseForm() {
         .then(
           (result) => {
             console.log(result.text);
-            alert('Your message has been sent successfully!');
+            alert('Your request has been sent successfully!');
             setFormData({
               name: '',
               email: '',
               message: '',
-              agree: false
+              agree: false,
             });
+            setLoading(false); // Set loading to false after successful submission
           },
           (error) => {
             console.log(error.text);
             alert('An error occurred. Please try again.');
+            setLoading(false); // Set loading to false in case of an error
           }
         );
     }
@@ -158,9 +162,10 @@ export default function PurchaseForm() {
       {/* Submit Button */}
       <button
         type="submit"
-        className="bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md md:text-sm text-xs transition duration-300 ease-in-out active:scale-95 md:w-auto w-full"
+        className={`bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md md:text-sm text-xs transition duration-300 ease-in-out active:scale-95 md:w-auto w-full ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+        disabled={loading} // Disable the button when loading
       >
-        Submit request
+        {loading ? 'Submitting...' : 'Submit request'} {/* Change button text when loading */}
       </button>
       {/* Note */}
       <div className='p-4 border border-stone-800/30 rounded-lg bg-stone-900/20'>

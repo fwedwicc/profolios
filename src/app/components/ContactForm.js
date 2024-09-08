@@ -16,6 +16,8 @@ export default function ContactForm() {
     agree: false,
   });
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -47,6 +49,7 @@ export default function ContactForm() {
       setErrors(formErrors);
     } else {
       setErrors({});
+      setLoading(true); // Set loading to true before submitting
       emailjs
         .send(
           serviceId,
@@ -61,17 +64,19 @@ export default function ContactForm() {
         .then(
           (result) => {
             console.log(result.text);
-            alert('Your message has been sent successfully!');
+            alert('Your inquiry has been sent successfully!');
             setFormData({
               name: '',
               email: '',
               message: '',
-              agree: false
+              agree: false,
             });
+            setLoading(false); // Set loading to false after successful submission
           },
           (error) => {
             console.log(error.text);
             alert('An error occurred. Please try again.');
+            setLoading(false); // Set loading to false if an error occurs
           }
         );
     }
@@ -150,9 +155,10 @@ export default function ContactForm() {
       {/* Submit Button */}
       <button
         type="submit"
-        className="bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md md:text-sm text-xs transition duration-300 ease-in-out active:scale-95 md:w-auto w-full"
+        className={`bg-stone-200 hover:bg-stone-300 text-stone-950 font-semibold py-2 px-4 rounded-md md:text-sm text-xs transition duration-300 ease-in-out active:scale-95 md:w-auto w-full ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+        disabled={loading} // Disable button during loading
       >
-        Submit inquiry
+        {loading ? 'Submitting...' : 'Submit inquiry'} {/* Change text during loading */}
       </button>
       {/* Note */}
       <div className='p-4 border border-stone-800/30 rounded-lg bg-stone-900/20'>
