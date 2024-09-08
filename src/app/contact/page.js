@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion';
 import useLenis from '../../hooks/useLenis';
-import { professionLinks, socialLinks } from '../../constants/data';
+import { professionLinks, socialLinks } from '../constants/data';
 import ContactForm from '../../components/ContactForm';
 
 export default function Contact() {
