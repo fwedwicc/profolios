@@ -74,7 +74,9 @@ export default function Collection() {
                       <Image
                         src={item.image}
                         alt={item.title}
-                        className="absolute object-cover w-full h-full rounded-lg"
+                        layout="fill" // Makes the image cover the container
+                        objectFit="cover" // Ensures the image covers the container while maintaining its aspect ratio
+                        className="rounded-lg"
                       />
                     </div>
                     <div className="flex justify-between items-start">
@@ -111,7 +113,13 @@ export default function Collection() {
                 <div className='grid md:grid-cols-2 grid-cols-1 md:gap-12 gap-4 w-full h-full md:p-8 p-5 overflow-y-auto md:custom-scrollbar invisible-scrollbar'>
                   {/* Image */}
                   <div className="relative md:h-full h-[13rem]">
-                    <Image src={selectedItem.image} alt={selectedItem.title} className="absolute object-cover w-full h-full rounded-lg" />
+                    <Image
+                      src={selectedItem.image}
+                      alt={selectedItem.title}
+                      layout="fill" // Makes the image cover the container
+                      objectFit="cover" // Ensures the image covers the container while maintaining its aspect ratio
+                      className="rounded-lg"
+                    />
                   </div>
                   <div className='space-y-4'>
                     {/* Title */}

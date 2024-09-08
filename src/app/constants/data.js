@@ -88,7 +88,7 @@ const itemsData = [
     allItems: [
       {
         id: 1,
-        image: 'https://placehold.co/600x400',
+        image: '',
         title: 'Luxury Portfolio with Indigo Elegance',
         price: 1099,
         sold: 3,
@@ -99,7 +99,7 @@ const itemsData = [
       },
       {
         id: 2,
-        image: 'https://placehold.co/600x400',
+        image: '',
         title: 'Modern Business Website in Green',
         price: 999,
         sold: 1,
@@ -110,7 +110,7 @@ const itemsData = [
       },
       {
         id: 3,
-        image: 'https://placehold.co/600x400',
+        image: '',
         title: 'Starter Portfolio with Yellow Accents',
         price: 799,
         sold: 1,
@@ -125,7 +125,7 @@ const itemsData = [
     premiumItems: [
       {
         id: 1,
-        image: 'https://placehold.co/600x400',
+        image: '',
         title: 'Luxury Portfolio with Indigo Elegance',
         price: 1099,
         sold: 3,
@@ -140,7 +140,7 @@ const itemsData = [
     standardItems: [
       {
         id: 2,
-        image: 'https://placehold.co/600x400',
+        image: '',
         title: 'Modern Business Website in Green',
         price: 999,
         sold: 1,
@@ -155,7 +155,7 @@ const itemsData = [
     basicItems: [
       {
         id: 3,
-        image: 'https://placehold.co/600x400',
+        image: '',
         title: 'Starter Portfolio with Yellow Accents',
         price: 799,
         sold: 1,

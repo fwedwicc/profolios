@@ -29,7 +29,15 @@ export default function Purchase() {
           {/* Left Content */}
           <div className='lg:order-1 order-2 space-y-4'>
             <div className="relative md:h-[25rem] h-[14rem]">
-              {image && <Image src={image} alt={title} className="absolute object-cover w-full h-full rounded-lg" />}
+              {image && (
+                <Image
+                  src={image}
+                  alt={title}
+                  layout="fill" // Makes the image cover the container
+                  objectFit="cover" // Ensures the image covers the container while maintaining its aspect ratio
+                  className="rounded-lg"
+                />
+              )}
             </div>
             <div className='space-y-5'>
               <div className='flex justify-between items-start'>
