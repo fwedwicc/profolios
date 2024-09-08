@@ -72,3 +72,16 @@ html.lenis body {
   @apply rounded-sm bg-transparent;
 }
 /* ------------------------ // Scrollbar Styles ------------------------ */
+
+/* ------------------------ Progressbar Styles ------------------------ */
+#nprogress .bar {
+  background: #cfcfcf !important; /* Green progress bar */
+}
+#nprogress .peg {
+  box-shadow: 0 0 10px #cfcfcf, 0 0 5px #cfcfcf;
+}
+#nprogress .spinner-icon {
+  border-top-color: #cfcfcf;
+  border-left-color: #cfcfcf;
+}
+/* ------------------------ // Progressbar Styles ------------------------ */

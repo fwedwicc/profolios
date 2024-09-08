@@ -1,9 +1,25 @@
-'use client'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
+'use client';
+
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 export function Nav() {
-  const pathname = usePathname()
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleStart = () => NProgress.start();
+    const handleComplete = () => NProgress.done();
+
+    handleStart(); // Start progress on navigation
+    handleComplete(); // Stop progress when done
+
+    return () => {
+      NProgress.done();
+    };
+  }, [pathname]);
 
   return (
     <nav className='bg-stone-900/90 z-40 border backdrop-blur-md border-stone-800/30 text-sm rounded-full md:py-2.5 py-2 md:px-5 px-3 fixed md:top-12 top-14 w-auto flex left-1/2 -translate-x-1/2'>
@@ -20,5 +36,5 @@ export function Nav() {
         Contact
       </Link>
     </nav>
-  )
+  );
 }
