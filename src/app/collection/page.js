@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link'
 import Image from 'next/image';
-import useLenis from '../hooks/useLenis';
+import useLenis from '../../hooks/useLenis';
 import { motion, AnimatePresence } from 'framer-motion';
-import itemsData from '../constants/data'
-import { tabItems } from '../constants/data';
-import { GetInTouch } from '../components/GetInTouch';
+import itemsData from '../../constants/data'
+import { tabItems } from '../../constants/data';
+import { GetInTouch } from '../../components/GetInTouch';
 
 export default function Collection() {
   useLenis()

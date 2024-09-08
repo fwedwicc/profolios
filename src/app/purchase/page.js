@@ -2,10 +2,10 @@
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
-import PurchaseForm from '../components/PurchaseForm';
-import { GetInTouch } from '../components/GetInTouch';
+import PurchaseForm from '../../components/PurchaseForm';
+import { GetInTouch } from '../../components/GetInTouch';
 
-import useLenis from '../hooks/useLenis';
+import useLenis from '../../hooks/useLenis';
 
 export default function Purchase() {
   useLenis()

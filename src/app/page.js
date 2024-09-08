@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion';
-import useLenis from './hooks/useLenis';
-import { GetInTouch } from './components/GetInTouch';
+import useLenis from '../hooks/useLenis';
+import { GetInTouch } from '../components/GetInTouch';
 
 export default function Home() {
   useLenis()

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image';
-import meshGradient from '../../../public/mesh-gradient-01.png'
+import meshGradient from '../../public/mesh-gradient-01.png'
 
 export function GetInTouch() {
   return (

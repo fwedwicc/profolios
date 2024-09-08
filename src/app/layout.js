@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
-import { Banner } from './components/Banner';
-import { Nav } from './components/Nav';
-import { Footer } from './components/Footer';
+import { Banner } from '../components/Banner';
+import { Nav } from '../components/Nav';
+import { Footer } from '../components/Footer';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
