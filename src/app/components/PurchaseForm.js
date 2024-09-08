@@ -169,7 +169,7 @@ export default function PurchaseForm() {
       </button>
       {/* Note */}
       <div className='p-4 border border-stone-800/30 rounded-lg bg-stone-900/20'>
-        <p><span className='text-stone-300'>Note:</span> After submitting your purchase request, I'll reach out via email to proceed with the transaction. You can also request a preview link of your selected live site to help you make an informed decision.</p>
+        <p><span className='text-stone-300'>Note:</span> After submitting your purchase request, I&apos;ll reach out via email to proceed with the transaction. You can also request a preview link of your selected live site to help you make an informed decision.</p>
       </div>
     </form>
   )

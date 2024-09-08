@@ -86,7 +86,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className='grid md:grid-cols-2 grid-cols-1 gap-4'>
         <div className='md:col-span-2 col-span-1 space-y-1 mb-4'>
-          <h3>Let's chat!</h3>
+          <h3>Let&apos;s chat!</h3>
           <p>Please complete this form to discuss your concerns in detail.</p>
         </div>
         {/* Complete Name */}
@@ -162,7 +162,7 @@ export default function ContactForm() {
       </button>
       {/* Note */}
       <div className='p-4 border border-stone-800/30 rounded-lg bg-stone-900/20'>
-        <p><span className='text-stone-300'>Note:</span> After you submit this form, I'll reach out to you via email to discuss your inquiry or concern in more detail. I'll make sure to get back to you as soon as possible, so we can start addressing your needs right away!</p>
+        <p><span className='text-stone-300'>Note:</span> After you submit this form, I&apos;ll reach out to you via email to discuss your inquiry or concern in more detail. I&apos;ll make sure to get back to you as soon as possible, so we can start addressing your needs right away!</p>
       </div>
     </form>
   )

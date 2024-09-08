@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import PurchaseForm from '../components/PurchaseForm';
 import { GetInTouch } from '../components/GetInTouch';
 
@@ -28,7 +29,7 @@ export default function Purchase() {
           {/* Left Content */}
           <div className='lg:order-1 order-2 space-y-4'>
             <div className="relative md:h-[25rem] h-[14rem]">
-              {image && <img src={image} alt={title} className="absolute object-cover w-full h-full rounded-lg" />}
+              {image && <Image src={image} alt={title} className="absolute object-cover w-full h-full rounded-lg" />}
             </div>
             <div className='space-y-5'>
               <div className='flex justify-between items-start'>

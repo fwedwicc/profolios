@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link'
+import Image from 'next/image';
 import useLenis from '../hooks/useLenis';
 import { motion, AnimatePresence } from 'framer-motion';
 import itemsData from '../constants/data'
@@ -70,7 +71,7 @@ export default function Collection() {
                     onClick={() => toggleModal(item)}
                   >
                     <div className="relative lg:h-[25rem] md:h-[20rem] h-[13rem]">
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.title}
                         className="absolute object-cover w-full h-full rounded-lg"
@@ -110,7 +111,7 @@ export default function Collection() {
                 <div className='grid md:grid-cols-2 grid-cols-1 md:gap-12 gap-4 w-full h-full md:p-8 p-5 overflow-y-auto md:custom-scrollbar invisible-scrollbar'>
                   {/* Image */}
                   <div className="relative md:h-full h-[13rem]">
-                    <img src={selectedItem.image} alt={selectedItem.title} className="absolute object-cover w-full h-full rounded-lg" />
+                    <Image src={selectedItem.image} alt={selectedItem.title} className="absolute object-cover w-full h-full rounded-lg" />
                   </div>
                   <div className='space-y-4'>
                     {/* Title */}

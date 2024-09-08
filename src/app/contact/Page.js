@@ -30,7 +30,7 @@ export default function Contact() {
           </span>
           <h1>Love to hear <br /> from you!</h1>
           <p className='w-full max-w-lg'>
-            Whether you have questions or are ready to get started on your custom portfolio website, I'm here to assist! Share your ideas, and I'll personally get back to you. Feel free to reach out at: <a href='mailto:moreno.frederick.capiral@gmail.com' className='text-stone-300 underline'>moreno.frederick.capiral@gmail.com</a>
+            Whether you have questions or are ready to get started on your custom portfolio website, I&apos;m here to assist! Share your ideas, and I&apos;ll personally get back to you. Feel free to reach out at: <a href='mailto:moreno.frederick.capiral@gmail.com' className='text-stone-300 underline'>moreno.frederick.capiral@gmail.com</a>
           </p>
           {/* Profession Links */}
           <div className='space-y-3'>
