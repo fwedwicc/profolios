@@ -16,6 +16,25 @@ export default function Pricing() {
       <div className='lg:px-24 md:px-16 pt-36'>
         <h1>Pricing</h1>
         <p>This page contains pricing page contents.</p>
+        <div className='grid grid-cols-1 gap-3'>
+          <div className='border flex items-center justify-center'>
+            <div className='border w-full max-w-lg'>
+              ss
+            </div>
+          </div>
+          <div className='grid md:grid-cols-2 grid-cols-1'>
+            <div className='border flex items-center justify-center'>
+              <div className='border w-full max-w-lg'>
+                ss
+              </div>
+            </div>
+            <div className='border flex items-center justify-center'>
+              <div className='border w-full max-w-lg'>
+                ss
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <GetInTouch />
     </motion.section>
