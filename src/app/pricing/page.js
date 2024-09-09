@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion';
+import Link from 'next/link'
 import useLenis from '../../hooks/useLenis';
 import { GetInTouch } from '../../components/GetInTouch';
 
@@ -19,8 +20,8 @@ const CardContent = ({ title, description, price, benefits = [] }) => {
         <p>{description}</p>
       </div>
       {/* Price */}
-      <div className='flex items-start gap-2'>
-        <p className={`${price === 799 ? 'text-yellow-500' : price === 999 ? 'text-green-500' : 'text-indigo-500'} text-2xl`}>₱</p>
+      <div className='flex items-start md:gap-2 gap-1.5'>
+        <p className={`${price === 799 ? 'text-yellow-500' : price === 999 ? 'text-green-500' : 'text-indigo-500'} md:text-2xl text-lg`}>₱</p>
         <h2 className='font-normal'>{price}.00</h2>
       </div>
       {/* Benefits */}
@@ -52,13 +53,16 @@ export default function Pricing() {
       className='md:p-12 p-6 space-y-24'
     >
       <div className='lg:px-24 md:px-16 pt-36'>
-        <h1>Pricing</h1>
-        <p>This page contains pricing page contents.</p>
-        <div className='grid grid-cols-1 gap-6 mt-12'>
-          <div className='grid lg:grid-cols-2 grid-cols-1 gap-6'>
-            <div className='flex items-center justify-end'>
+        <div className='space-y-5'>
+          <h1>Fair pricing for <br className='md:block hidden' /> your site.</h1>
+          <p className='w-full max-w-lg'>Reprehenderit ea officia aliquip minim proident nulla et nisi ad. Anim ea non eiusmod nulla ad anim ullamco non consequat aute aute deserunt exercitation consequat. Tempor ut nisi esse aliqua eiusmod consequat. </p>
+          <p>Ready to choose? Browse the <Link href='/collection' className='w-full max-w-lg md:text-sm text-xs text-stone-300 underline'>full collection here.</Link></p>
+        </div>
+        <div className='grid grid-cols-1 gap-9 mt-12'>
+          <div className='grid lg:grid-cols-2 grid-cols-1 gap-9'>
+            <div className='flex items-center md:justify-end justify-center'>
               {/* Basic Site Card */}
-              <div className='border rounded-3xl w-full max-w-lg p-8'>
+              <div className='border-stone-800/30 bg-stone-900/20 border rounded-3xl w-full max-w-lg md:p-8 p-6'>
                 <CardContent
                   title='Basic Sites'
                   description='Consectetur tempor reprehenderit quis labore quis duis ullamco laboris velit nulla.Ad officia nulla aute est voluptate magna eiusmod labore aute.'
@@ -67,9 +71,9 @@ export default function Pricing() {
                 />
               </div>
             </div>
-            <div className='flex items-center justify-start'>
+            <div className='flex items-center md:justify-start justify-center'>
               {/* Standard Site Card */}
-              <div className='border rounded-3xl w-full max-w-lg p-8'>
+              <div className='border-stone-800/30 bg-stone-900/20 border rounded-3xl w-full max-w-lg md:p-8 p-6'>
                 <CardContent
                   title='Standard Sites'
                   description='Consectetur tempor reprehenderit quis labore quis duis ullamco laboris velit nulla.Ad officia nulla aute est voluptate magna eiusmod labore aute.'
@@ -81,13 +85,21 @@ export default function Pricing() {
           </div>
           <div className='flex items-center justify-center'>
             {/* Premium Site Card */}
-            <div className='border rounded-3xl w-full max-w-lg p-8'>
-              <CardContent
-                title='Premium Sites'
-                description='Consectetur tempor reprehenderit quis labore quis duis ullamco laboris velit nulla.Ad officia nulla aute est voluptate magna eiusmod labore aute.'
-                price={1099}
-                benefits={['sss', 'ssssss', 'ssssssss']}
-              />
+            <div className='border-stone-800/30 bg-indigo-800/20 border rounded-3xl w-full max-w-lg p-px'>
+              <div className='flex items-center gap-1.5 text-indigo-500 md:px-8 px-6 md:py-2 py-1.5'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                  <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clipRule="evenodd" />
+                </svg>
+                <p className='text-indigo-500 md:text-sm text-xs font-semibold'>Best pick for you!</p>
+              </div>
+              <div className='md:p-8 p-6 bg-stone-950 rounded-b-[23px] rounded-t-3xl'>
+                <CardContent
+                  title='Premium Sites'
+                  description='Consectetur tempor reprehenderit quis labore quis duis ullamco laboris velit nulla.Ad officia nulla aute est voluptate magna eiusmod labore aute.'
+                  price={1099}
+                  benefits={['sss', 'ssssss', 'ssssssss']}
+                />
+              </div>
             </div>
           </div>
         </div>
