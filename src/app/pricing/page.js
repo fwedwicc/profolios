@@ -3,6 +3,44 @@ import { motion } from 'framer-motion';
 import useLenis from '../../hooks/useLenis';
 import { GetInTouch } from '../../components/GetInTouch';
 
+const CardContent = ({ title, description, price, benefits = [] }) => {
+  return (
+    <div className='space-y-5'>
+      {/* Badge */}
+      <span className={`inline-flex items-center justify-center rounded-full size-10 border ${price === 799 ? 'text-yellow-400 border-yellow-500/50 bg-yellow-700/10' : price === 999 ? 'text-green-400 border-green-500/50 bg-green-700/10' : 'text-indigo-400 border-indigo-500/50 bg-indigo-700/10'}`}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+          <path fillRule="evenodd" d={price === 799 ? 'M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z' : price === 999 ? 'M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152-.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248ZM15.75 14.25a3.75 3.75 0 1 1-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 0 1 1.925-3.546 3.75 3.75 0 0 1 3.255 3.718Z' : 'M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z'} clipRule="evenodd" />
+        </svg>
+      </span>
+      <div className='space-y-1.5'>
+        {/* Title */}
+        <h3 className='leading-none md:text-3xl text-xl font-semibold'>{title}</h3>
+        {/* Description */}
+        <p>{description}</p>
+      </div>
+      {/* Price */}
+      <div className='flex items-start gap-2'>
+        <p className={`${price === 799 ? 'text-yellow-500' : price === 999 ? 'text-green-500' : 'text-indigo-500'} text-2xl`}>₱</p>
+        <h2 className='font-normal'>{price}.00</h2>
+      </div>
+      {/* Benefits */}
+      <div className='space-y-3'>
+        <p>Benefits:</p>
+        <ul className='space-y-1'>
+          {benefits.map((benefit, index) => (
+            <li key={index} className='md:text-sm text-xs text-stone-300 flex items-start gap-2.5'>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4 mt-[1.5px] md:mt-[2.5px]">
+                <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
+              </svg>
+              {benefit}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
 export default function Pricing() {
   useLenis()
   return (
@@ -16,22 +54,40 @@ export default function Pricing() {
       <div className='lg:px-24 md:px-16 pt-36'>
         <h1>Pricing</h1>
         <p>This page contains pricing page contents.</p>
-        <div className='grid grid-cols-1 gap-3'>
-          <div className='border flex items-center justify-center'>
-            <div className='border w-full max-w-lg'>
-              ss
+        <div className='grid grid-cols-1 gap-6 mt-12'>
+          <div className='grid lg:grid-cols-2 grid-cols-1 gap-6'>
+            <div className='flex items-center justify-end'>
+              {/* Basic Site Card */}
+              <div className='border rounded-3xl w-full max-w-lg p-8'>
+                <CardContent
+                  title='Basic Sites'
+                  description='Consectetur tempor reprehenderit quis labore quis duis ullamco laboris velit nulla.Ad officia nulla aute est voluptate magna eiusmod labore aute.'
+                  price={799}
+                  benefits={['sss', 'ssssss', 'ssssssss']}
+                />
+              </div>
+            </div>
+            <div className='flex items-center justify-start'>
+              {/* Standard Site Card */}
+              <div className='border rounded-3xl w-full max-w-lg p-8'>
+                <CardContent
+                  title='Standard Sites'
+                  description='Consectetur tempor reprehenderit quis labore quis duis ullamco laboris velit nulla.Ad officia nulla aute est voluptate magna eiusmod labore aute.'
+                  price={999}
+                  benefits={['sss', 'ssssss', 'ssssssss']}
+                />
+              </div>
             </div>
           </div>
-          <div className='grid md:grid-cols-2 grid-cols-1'>
-            <div className='border flex items-center justify-center'>
-              <div className='border w-full max-w-lg'>
-                ss
-              </div>
-            </div>
-            <div className='border flex items-center justify-center'>
-              <div className='border w-full max-w-lg'>
-                ss
-              </div>
+          <div className='flex items-center justify-center'>
+            {/* Premium Site Card */}
+            <div className='border rounded-3xl w-full max-w-lg p-8'>
+              <CardContent
+                title='Premium Sites'
+                description='Consectetur tempor reprehenderit quis labore quis duis ullamco laboris velit nulla.Ad officia nulla aute est voluptate magna eiusmod labore aute.'
+                price={1099}
+                benefits={['sss', 'ssssss', 'ssssssss']}
+              />
             </div>
           </div>
         </div>
