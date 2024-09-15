@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import useLenis from '../hooks/useLenis';
 import { GetInTouch } from '../components/GetInTouch';
+import { Hero } from '../components/Hero';
 
 export default function Home() {
   useLenis()
@@ -13,10 +14,7 @@ export default function Home() {
       transition={{ duration: 0.5 }}
       className='md:p-12 p-6 space-y-24'
     >
-      <div className='lg:px-24 md:px-16 pt-36'>
-        <h1>Home</h1>
-        <p>This page contains home page contents.</p>
-      </div>
+      <Hero />
       <GetInTouch />
     </motion.section>
   );
