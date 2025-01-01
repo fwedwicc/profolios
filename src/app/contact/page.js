@@ -60,7 +60,11 @@ export default function Contact() {
                 <li className='inline-flex' key={index}>
                   <a href={item.link} target='_blank' rel='noopener noreferrer' className='rounded-full hover:bg-stone-800/50 p-2 transition duration-300 ease-in-out group'>
                     <svg className={`shrink-0 md:size-5 size-4 transition duration-300 ease-in-out ${item.accent}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                      <path fill="currentColor" fill-rule="evenodd" d={item.svg} clip-rule="evenodd" />
+                      {Array.isArray(item.svg) ? (
+                        item.svg.map((d, i) => <path key={i} fill="currentColor" fillRule="evenodd" d={d} clipRule="evenodd" />)
+                      ) : (
+                        <path fillRule="evenodd" fill="currentColor" d={item.svg} clipRule="evenodd" />
+                      )}
                     </svg>
                   </a>
                 </li>

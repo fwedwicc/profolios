@@ -49,10 +49,12 @@ export function Footer() {
           <ul>
             <li className='md:text-sm text-xs text-stone-400 mb-2'>Socials</li>
             {[
-              { label: 'Facebook', accent: 'hover:text-blue-500', link: 'https://web.facebook.com/fwedwic' },
-              { label: 'Instagram', accent: 'hover:text-rose-500', link: 'https://www.instagram.com/freefinnn/' },
+              // { label: 'Facebook', accent: 'hover:text-blue-500', link: 'https://web.facebook.com/fwedwic' },
+              // { label: 'Instagram', accent: 'hover:text-rose-500', link: 'https://www.instagram.com/freefinnn/' },
               { label: 'LinkedIn', accent: 'hover:text-blue-500', link: 'https://www.linkedin.com/in/frederick-moreno/' },
-              { label: 'Github', accent: 'hover:text-stone-500', link: 'https://github.com/fwedwicc/' },
+              { label: 'GitHub', accent: 'hover:text-green-500', link: 'https://github.com/fwedwicc/' },
+              { label: 'Dribbble', accent: 'hover:text-pink-500', link: 'https://dribbble.com/fwedwic/' },
+              { label: 'Behance', accent: 'hover:text-blue-500', link: 'https://www.behance.net/fwedwicc' },
             ].map((link, index) => (
               <li key={index}>
                 <a href={link.link} target='_blank' rel='noopener noreferrer' className={`${link.accent} md:text-sm text-xs transition duration-300 ease-in-out`}>{link.label}</a>
@@ -63,8 +65,8 @@ export function Footer() {
       </div>
       {/* Foot */}
       <div className='border-t border-stone-900 pt-6 flex md:flex-row flex-col md:justify-between justify-center items-center gap-1'>
-        <span className='md:text-sm text-xs text-stone-400'>© 2024 • profolios</span>
-        <span className='md:text-sm text-xs text-stone-400'>Crafted by <a href='https://fwedwicc.github.io/FM-Portfolio/' target='_blank' rel='noopener noreferrer' className='text-stone-200 hover:text-indigo-500 transition duration-300 ease-in-out'>Frederick Moreno</a></span>
+        <span className='md:text-sm text-xs text-stone-400'>© 2025 • profolios</span>
+        <span className='md:text-sm text-xs text-stone-400'>Crafted by <a href='https://fm-linktree.vercel.app' target='_blank' rel='noopener noreferrer' className='text-stone-200 hover:text-indigo-500 transition duration-300 ease-in-out'>Frederick Moreno</a></span>
       </div>
     </footer>
   )
